@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Screens Name-->
+    <string name="edit">Edit</string>
+    <string name="add_note">Add Note</string>
+    <string name="detail">Detail</string>
+
+    <!-- Add Note Activity Strings-->
+    <string name="hint_title">Title</string>
+    <string name="hint_detail">Detail</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Edit Activity Strings-->
+    <string name="update">Update</string>
+
+    <!-- Detail Activity String-->
+    <string name="done">Done</string>
+</resources>
