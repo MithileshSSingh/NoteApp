@@ -1,15 +1,13 @@
-package com.example.basicmvp.notes.mvp.add_notes;
+package com.example.basicmvp.notes.mvp.screen_add_notes;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.basicmvp.notes.R;
 import com.example.basicmvp.notes.di.RepositoryInjector;

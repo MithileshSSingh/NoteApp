@@ -1,6 +1,5 @@
-package com.example.basicmvp.notes.mvp.main_screen;
+package com.example.basicmvp.notes.mvp.screen_main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -14,8 +13,6 @@ import android.view.ViewGroup;
 
 import com.example.basicmvp.notes.R;
 import com.example.basicmvp.notes.mvp.BaseFragment;
-import com.example.basicmvp.notes.mvp.detail_notes.DetailNoteActivity;
-import com.example.basicmvp.notes.mvp.edit_notes.EditNoteActivity;
 import com.example.basicmvp.notes.mvp.model.Notes;
 
 import java.util.ArrayList;

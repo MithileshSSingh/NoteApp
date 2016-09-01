@@ -1,4 +1,4 @@
-package com.example.basicmvp.notes.mvp.edit_notes;
+package com.example.basicmvp.notes.mvp.screen_detail_notes;
 
 import com.example.basicmvp.notes.data.DataSource;
 import com.example.basicmvp.notes.data.Repository;
@@ -7,21 +7,21 @@ import com.example.basicmvp.notes.mvp.model.Notes;
 /**
  * Created by mithilesh on 8/28/16.
  */
-public class EditNotePresenter implements EditNoteContract.Presenter {
+public class DetailNotePresenter implements DetailNoteContract.Presenter {
 
     private Repository mRepository;
-    private EditNoteContract.View mView;
+    private DetailNoteContract.View mView;
 
-    public EditNotePresenter(Repository repository, EditNoteContract.View view) {
+    public DetailNotePresenter(Repository repository, DetailNoteContract.View view) {
         this.mRepository = repository;
         this.mView = view;
         mView.setPresenter(this);
     }
 
-    @Override
-    public void editNote(Notes note, final EditNoteContract.View.EditNotesCallBack callBack) {
-        mRepository.editNote(note, note.getId(), new DataSource.CommonOperationCallBack() {
 
+    @Override
+    public void deleteNote(Notes note, final DetailNoteContract.View.DeleteNotesCallBack callBack) {
+        mRepository.completeNotes(note.getId(), new DataSource.CommonOperationCallBack() {
             @Override
             public void success(String successMessage) {
                 callBack.success(successMessage);

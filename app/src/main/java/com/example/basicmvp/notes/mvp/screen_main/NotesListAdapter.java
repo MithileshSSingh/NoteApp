@@ -1,8 +1,7 @@
-package com.example.basicmvp.notes.mvp.main_screen;
+package com.example.basicmvp.notes.mvp.screen_main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +11,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.basicmvp.notes.R;
-import com.example.basicmvp.notes.mvp.detail_notes.DetailNoteActivity;
-import com.example.basicmvp.notes.mvp.edit_notes.EditNoteActivity;
 import com.example.basicmvp.notes.mvp.model.Notes;
 
 import java.util.Collections;

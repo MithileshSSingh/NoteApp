@@ -1,4 +1,4 @@
-package com.example.basicmvp.notes.mvp.detail_notes;
+package com.example.basicmvp.notes.mvp.screen_detail_notes;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.basicmvp.notes.R;
 import com.example.basicmvp.notes.di.RepositoryInjector;

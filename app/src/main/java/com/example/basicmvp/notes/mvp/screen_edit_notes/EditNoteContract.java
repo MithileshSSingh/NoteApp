@@ -1,18 +1,16 @@
-package com.example.basicmvp.notes.mvp.add_notes;
+package com.example.basicmvp.notes.mvp.screen_edit_notes;
 
 import com.example.basicmvp.notes.mvp.BasePresenter;
 import com.example.basicmvp.notes.mvp.BaseView;
 import com.example.basicmvp.notes.mvp.model.Notes;
 
-import java.util.List;
-
 /**
  * Created by mithilesh on 8/28/16.
  */
-public interface AddNoteContract {
+public interface EditNoteContract {
     interface View extends BaseView<Presenter> {
 
-        interface AddNotesCallBack {
+        interface EditNotesCallBack {
             void success(String message);
 
             void failed(String errMessage);
@@ -20,6 +18,6 @@ public interface AddNoteContract {
     }
 
     interface Presenter extends BasePresenter {
-        void addNote(Notes note, View.AddNotesCallBack callBack);
+        void editNote(Notes note, View.EditNotesCallBack callBack);
     }
 }

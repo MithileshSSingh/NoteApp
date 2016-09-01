@@ -1,10 +1,8 @@
-package com.example.basicmvp.notes.mvp.add_notes;
+package com.example.basicmvp.notes.mvp.screen_add_notes;
 
 import com.example.basicmvp.notes.data.DataSource;
 import com.example.basicmvp.notes.data.Repository;
 import com.example.basicmvp.notes.mvp.model.Notes;
-
-import java.util.List;
 
 /**
  * Created by mithilesh on 8/28/16.

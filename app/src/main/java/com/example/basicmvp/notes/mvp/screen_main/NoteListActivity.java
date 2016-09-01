@@ -1,4 +1,4 @@
-package com.example.basicmvp.notes.mvp.main_screen;
+package com.example.basicmvp.notes.mvp.screen_main;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,9 +16,9 @@ import android.widget.Toast;
 import com.example.basicmvp.notes.R;
 import com.example.basicmvp.notes.di.RepositoryInjector;
 import com.example.basicmvp.notes.mvp.BaseActivity;
-import com.example.basicmvp.notes.mvp.add_notes.AddNoteActivity;
-import com.example.basicmvp.notes.mvp.detail_notes.DetailNoteActivity;
-import com.example.basicmvp.notes.mvp.edit_notes.EditNoteActivity;
+import com.example.basicmvp.notes.mvp.screen_add_notes.AddNoteActivity;
+import com.example.basicmvp.notes.mvp.screen_detail_notes.DetailNoteActivity;
+import com.example.basicmvp.notes.mvp.screen_edit_notes.EditNoteActivity;
 import com.example.basicmvp.notes.mvp.model.Notes;
 import com.example.basicmvp.notes.utils.ActivityUtils;
 

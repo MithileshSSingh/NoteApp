@@ -1,4 +1,4 @@
-package com.example.basicmvp.notes.mvp.detail_notes;
+package com.example.basicmvp.notes.mvp.screen_detail_notes;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

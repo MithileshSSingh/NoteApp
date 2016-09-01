@@ -1,4 +1,4 @@
-package com.example.basicmvp.notes.mvp.edit_notes;
+package com.example.basicmvp.notes.mvp.screen_detail_notes;
 
 import com.example.basicmvp.notes.mvp.BasePresenter;
 import com.example.basicmvp.notes.mvp.BaseView;
@@ -7,10 +7,10 @@ import com.example.basicmvp.notes.mvp.model.Notes;
 /**
  * Created by mithilesh on 8/28/16.
  */
-public interface EditNoteContract {
+public interface DetailNoteContract {
     interface View extends BaseView<Presenter> {
 
-        interface EditNotesCallBack {
+        interface DeleteNotesCallBack {
             void success(String message);
 
             void failed(String errMessage);
@@ -18,6 +18,6 @@ public interface EditNoteContract {
     }
 
     interface Presenter extends BasePresenter {
-        void editNote(Notes note, View.EditNotesCallBack callBack);
+        void deleteNote(Notes note, View.DeleteNotesCallBack callBack);
     }
 }

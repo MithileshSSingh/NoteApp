@@ -1,52 +1,44 @@
-package com.example.basicmvp.notes.mvp.edit_notes;
+package com.example.basicmvp.notes.mvp.screen_add_notes;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.example.basicmvp.notes.R;
 import com.example.basicmvp.notes.mvp.BaseFragment;
-import com.example.basicmvp.notes.mvp.add_notes.AddNoteActivity;
 import com.example.basicmvp.notes.mvp.model.Notes;
 import com.example.basicmvp.notes.utils.DateTimeUtils;
 
 import java.util.Date;
 
 /**
- * Created by mithilesh on 8/29/16.
+ * Created by mithilesh on 8/30/16.
  */
-public class EditNoteFragment extends BaseFragment implements EditNoteContract.View, View.OnClickListener {
+public class AddNoteFragment extends BaseFragment implements AddNoteContract.View, View.OnClickListener {
 
-    private EditNoteContract.Presenter mPresenter;
-
-    private Notes data;
+    private AddNoteContract.Presenter mPresenter;
 
     private EditText etTitle;
     private EditText etDetail;
 
-    private Button btnCancle;
-    private Button btnUpdate;
+    private Button btnCancel;
+    private Button btnAdd;
 
-    public EditNoteFragment() {
+    public AddNoteFragment() {
 
     }
 
-    public static EditNoteFragment newInstance() {
-        return new EditNoteFragment();
+    public static AddNoteFragment newInstance() {
+        return new AddNoteFragment();
     }
 
-    @Nullable
-    @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_edit_note, container, false);
+        mView = inflater.inflate(R.layout.fragment_add_note,
+                container, false);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
@@ -54,16 +46,6 @@ public class EditNoteFragment extends BaseFragment implements EditNoteContract.V
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         init();
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -76,49 +58,45 @@ public class EditNoteFragment extends BaseFragment implements EditNoteContract.V
 
     @Override
     protected void initViews() {
-
-        etDetail = (EditText) mView.findViewById(R.id.etDetail);
         etTitle = (EditText) mView.findViewById(R.id.etTitle);
+        etDetail = (EditText) mView.findViewById(R.id.etDetail);
 
-        btnCancle = (Button) mView.findViewById(R.id.btnCancel);
-        btnUpdate = (Button) mView.findViewById(R.id.btnUpdate);
+        btnAdd = (Button) mView.findViewById(R.id.btnAdd);
+        btnCancel = (Button) mView.findViewById(R.id.btnCancel);
     }
 
     @Override
     protected void initMember() {
-        Bundle bundle = getArguments();
-        data = (Notes) bundle.getSerializable("edit");
+
     }
 
     @Override
     protected void initListener() {
-        btnCancle.setOnClickListener(this);
-        btnUpdate.setOnClickListener(this);
+        btnAdd.setOnClickListener(this);
+        btnCancel.setOnClickListener(this);
     }
 
     @Override
     protected void initData() {
-        etTitle.setText(data.getTitle());
-        etDetail.setText(data.getBody());
+
     }
 
     @Override
-    public void setPresenter(EditNoteContract.Presenter presenter) {
+    public void setPresenter(AddNoteContract.Presenter presenter) {
         mPresenter = presenter;
     }
 
-    private void editNote(Notes notes) {
-        mPresenter.editNote(notes, new EditNotesCallBack() {
+
+    private void addNote(Notes notes) {
+        mPresenter.addNote(notes, new AddNotesCallBack() {
             @Override
             public void success(String message) {
-                ((EditNoteActivity) mActivity).showSnakBarText(mActivity, message);
-                mActivity.finish();
+                ((AddNoteActivity) getActivity()).showSnakBarText(mActivity, message);
             }
 
             @Override
             public void failed(String errMessage) {
-                ((EditNoteActivity) mActivity).showSnakBarText(mActivity, errMessage);
-                mActivity.finish();
+                ((AddNoteActivity) mActivity).showSnakBarText(mActivity, errMessage);
             }
         });
     }
@@ -126,20 +104,20 @@ public class EditNoteFragment extends BaseFragment implements EditNoteContract.V
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btnUpdate:
+            case R.id.btnAdd:
                 String title = etTitle.getText().toString().trim();
                 String detail = etDetail.getText().toString().trim();
+                String date = DateTimeUtils.formateToDate(new Date());
 
                 if (title.equals("") || detail.equals("")) {
-                    ((EditNoteActivity) getActivity()).showSnakBarText(mActivity, "Enter title and Detail.");
+                    ((AddNoteActivity) getActivity()).showSnakBarText(mActivity, "Enter title and Detail.");
                 } else {
                     Notes notes = new Notes();
-
-                    notes.setId(data.getId());
                     notes.setTitle(title);
                     notes.setBody(detail);
+                    notes.setDateCreated(date);
 
-                    editNote(notes);
+                    addNote(notes);
                 }
                 break;
             case R.id.btnCancel:

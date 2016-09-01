@@ -1,4 +1,4 @@
-package com.example.basicmvp.notes.mvp.main_screen;
+package com.example.basicmvp.notes.mvp.screen_main;
 
 import com.example.basicmvp.notes.data.DataSource;
 import com.example.basicmvp.notes.data.Repository;
