@@ -35,7 +35,7 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesListViewHolder> 
     @Override
     public NotesListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View contentView = mInflater.inflate(R.layout.item_note, parent, false);
-        return new NotesListViewHolder(contentView,mListener);
+        return new NotesListViewHolder(contentView, mListener);
     }
 
     @Override
@@ -57,17 +57,8 @@ public class NotesListAdapter extends RecyclerView.Adapter<NotesListViewHolder> 
 class NotesListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private View mView;
-    private TextView tvTitle;
-    private TextView tvBody;
-    private TextView tvDate;
-
-    private ImageView ivEdit;
-
-    private LinearLayout llNote;
-
-    NoteListContract.View.ListItemClickCallBack mListener;
-
     private Notes mData;
+    private NoteListContract.View.ListItemClickCallBack mListener;
 
     public NotesListViewHolder(View itemView, NoteListContract.View.ListItemClickCallBack listener) {
         super(itemView);
@@ -84,6 +75,14 @@ class NotesListViewHolder extends RecyclerView.ViewHolder implements View.OnClic
         initView();
         initListener();
     }
+
+    private TextView tvTitle;
+    private TextView tvBody;
+    private TextView tvDate;
+
+    private ImageView ivEdit;
+
+    private LinearLayout llNote;
 
     private void initView() {
         tvTitle = (TextView) mView.findViewById(R.id.tvTitle);
